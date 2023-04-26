@@ -64,7 +64,9 @@
               <img v-bind:src="element.avatar" alt="" style="height: 50px" />
               <div class="ps-2">
                 <div>{{element.name}}</div>
-                <div></div>
+                <div>
+                  {{element.messages[element.messages.length - 1].message}}
+                </div>
               </div>
             </div>
           </div>
@@ -75,11 +77,11 @@
             <div
               class="d-flex align-items-center background-color-gray p-2 -mx-2"
             >
-              <div class="d-flex">
+              <div class="d-flex flex-grow-1 justify-content-between">
                 <div class="d-flex align-items-center">
                   <!-- immagine utente -->
                   <img v-bind:src="contacts[currentActive].avatar" alt="" />
-                  <div>{{contacts[currentActive].name}}</div>
+                  <div class="ps-2">{{contacts[currentActive].name}}</div>
                 </div>
                 <div class="d-flex align-items-center">
                   <i class="fa-solid fa-circle-notch mx-1"></i>
@@ -89,11 +91,27 @@
               </div>
             </div>
             <!-- message-area -->
-            <div class="message-container"></div>
+            <div class="message-container d-flex flex-column">
+              <div
+                v-bind:class="message.status"
+                class="message"
+                v-for="message of contacts[currentActive].messages"
+              >
+                {{message.message}}
+                <p>{{message.date}}</p>
+              </div>
+            </div>
             <!-- message-bar -->
             <div class="message-bar p-2 d-flex align-items-center">
               <i class="fa-regular fa-face-smile me-2"></i>
-              <input class="w-100" type="text" />
+              <input
+                @keyup.enter="aggiungiALista()"
+                v-model="messaggioUtente"
+                class="w-100"
+                type="text"
+              />
+              <!-- send -->
+              <i class="fa-solid fa-right-to-bracket ms-2"></i>
               <i class="fa-solid fa-microphone ms-2"></i>
             </div>
           </div>
