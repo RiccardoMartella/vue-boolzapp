@@ -98,7 +98,7 @@
                 v-for="message of contacts[currentActive].messages"
               >
                 {{message.message}}
-                <p>{{message.date}}</p>
+                <p>{{message.date.substring(10,16)}}</p>
               </div>
             </div>
             <!-- message-bar -->
