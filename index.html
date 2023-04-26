@@ -54,6 +54,14 @@
                 placeholder=" Cerca o inizia una nuova chat"
               />
             </div>
+            <!-- nome utenti VUE -->
+            <div
+              v-for="(element,index) in contacts"
+              class="p-2 d-flex align-items-center"
+            >
+              <img v-bind:src="element.avatar" alt="" style="height: 50px" />
+              <div>{{element.name}}</div>
+            </div>
           </div>
           <!-- mid-area-right -->
           <div
