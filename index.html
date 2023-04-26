@@ -48,15 +48,21 @@
             </div>
             <!-- searchbar -->
             <div class="p-2">
-              <input
-                class="w-100"
-                type="text"
-                placeholder=" Cerca o inizia una nuova chat"
-              />
+              <div class="d-flex input-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                  v-model="nomeUtente"
+                  class="w-100"
+                  type="text"
+                  placeholder=" Cerca o inizia una nuova chat"
+                />
+              </div>
             </div>
             <!-- nome utenti VUE -->
             <div
-              v-for="(element,index) in contacts"
+              v-for="(element,index) in contacts.filter(function(contact) {
+                return contact.name.toLowerCase().includes(nomeUtente.toLowerCase())
+              })"
               class="p-2 d-flex align-items-center"
               v-bind:class="currentActive === index ? 'active' : ''"
               @click="onClick(index)"
@@ -98,18 +104,21 @@
                 v-for="message of contacts[currentActive].messages"
               >
                 {{message.message}}
-                <p>{{message.date.substring(10,16)}}</p>
+                <p>{{message.date.substring(10, 16)}}</p>
               </div>
             </div>
             <!-- message-bar -->
             <div class="message-bar p-2 d-flex align-items-center">
               <i class="fa-regular fa-face-smile me-2"></i>
-              <input
-                @keyup.enter="aggiungiALista()"
-                v-model="messaggioUtente"
-                class="w-100"
-                type="text"
-              />
+              <div class="input-container w-100">
+                <input
+                  @keyup.enter="aggiungiALista()"
+                  v-model="messaggioUtente"
+                  class="w-100"
+                  type="text"
+                  placeholder="Scrivi un messaggio"
+                />
+              </div>
               <!-- send -->
               <i class="fa-solid fa-right-to-bracket ms-2"></i>
               <i class="fa-solid fa-microphone ms-2"></i>

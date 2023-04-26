@@ -77,3 +77,15 @@ div.message p{
 .received{
     background-color: white;
 }
+
+.input-container {
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid #dedede;
+    padding: 5px 10px;
+}
+
+.input-container input {
+    background-color: transparent;
+    border: none;
+}

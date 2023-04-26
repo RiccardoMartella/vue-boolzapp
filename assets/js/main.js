@@ -5,6 +5,7 @@ createApp({
         return{
             currentActive: 0,
             messaggioUtente: "",
+            nomeUtente: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -174,7 +175,6 @@ createApp({
         onClick(newindex){
             this.currentActive = newindex
         },
-
         aggiungiALista(){
             this.contacts[this.currentActive].messages.push({
                 date: new Date().toLocaleString(), 
@@ -182,6 +182,6 @@ createApp({
                 status: 'sent' 
             })
             this.messaggioUtente = ""
-        }
+        },
     }
 }).mount('#app')
