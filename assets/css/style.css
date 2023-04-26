@@ -1,5 +1,30 @@
-body{
+.background-container{
     height: 100vh;
     background: rgb(9,9,121);
     background: linear-gradient(0deg, rgb(224, 218, 218) 85%, rgba(0,36,32,1) 50%, rgb(84, 156, 140) 0%);
+    position: relative;
+}
+
+
+/* <!-- mid-area --> */
+.mid-area{
+    background-color: rgb(255, 255, 255);
+    height: 92%;
+    width:85% ;
+    border: 1px solid; 
+}
+
+/* settings img  */
+img{
+    height: 50px;
+    border-radius: 50%;
+}
+
+i{
+    font-size: 25px;
+    color: rgb(201, 201, 201);
+}
+
+.icone-bell{
+
 }
