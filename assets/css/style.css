@@ -26,5 +26,9 @@ i{
 }
 
 .icone-bell{
-
+    background-color: white;
+    color:rgb(116, 195, 245);
+    border-radius: 50%;
+    font-size: 35px;
+    padding: 5px;
 }
