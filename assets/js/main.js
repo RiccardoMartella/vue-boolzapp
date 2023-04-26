@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return{
+            currentActive: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -145,7 +146,7 @@ createApp({
                 },
                 {
                     name: 'Davide',
-                    avatar: './img/avatar_8.png',
+                    avatar: './assets/img/avatar_8.jpg',
                     visible: true,
                     messages: [
                         {
@@ -169,6 +170,8 @@ createApp({
         }
     },
     methods: {
-
+        onClick(newindex){
+            this.currentActive = newindex
+        },
     }
 }).mount('#app')

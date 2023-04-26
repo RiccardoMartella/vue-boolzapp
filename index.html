@@ -58,9 +58,14 @@
             <div
               v-for="(element,index) in contacts"
               class="p-2 d-flex align-items-center"
+              v-bind:class="currentActive === index ? 'active' : ''"
+              @click="onClick(index)"
             >
               <img v-bind:src="element.avatar" alt="" style="height: 50px" />
-              <div>{{element.name}}</div>
+              <div class="ps-2">
+                <div>{{element.name}}</div>
+                <div></div>
+              </div>
             </div>
           </div>
           <!-- mid-area-right -->
@@ -68,16 +73,19 @@
             class="col-8 border-start p-0 d-flex flex-column justify-content-between"
           >
             <div
-              class="d-flex align-items-center justify-content-between background-color-gray p-2 -mx-2"
+              class="d-flex align-items-center background-color-gray p-2 -mx-2"
             >
-              <div class="d-flex align-items-center">
-                <img class="me-2" src="" alt="" />
-                <h4></h4>
-              </div>
               <div class="d-flex">
-                <i class="fa-solid fa-circle-notch mx-1"></i>
-                <i class="fa-solid fa-message mx-1"></i>
-                <i class="fa-solid fa-ellipsis-vertical mx-1"></i>
+                <div class="d-flex align-items-center">
+                  <!-- immagine utente -->
+                  <img v-bind:src="contacts[currentActive].avatar" alt="" />
+                  <div>{{contacts[currentActive].name}}</div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-circle-notch mx-1"></i>
+                  <i class="fa-solid fa-message mx-1"></i>
+                  <i class="fa-solid fa-ellipsis-vertical mx-1"></i>
+                </div>
               </div>
             </div>
             <!-- message-area -->

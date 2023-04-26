@@ -46,3 +46,9 @@ i{
 .background-color-gray{
     background-color: rgb(234, 233, 233);
 }
+
+.active {
+    background-color: rgb(196, 194, 194);
+    opacity: 1;
+    
+}
