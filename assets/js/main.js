@@ -26,7 +26,8 @@ createApp({
                             date: '10/01/2020 16:15:22',
                             message: 'Tutto fatto!',
                             status: 'received'
-                        }
+                        },
+               
                     ],
                 },
                 {
@@ -182,6 +183,16 @@ createApp({
                 status: 'sent' 
             })
             this.messaggioUtente = ""
+
+            setTimeout(() => {
+                const risposteRandom = ["ok","ciao","sto bene",]
+
+                this.contacts[this.currentActive].messages.push({
+                    date: new Date().toLocaleString(), 
+                    message: risposteRandom[Math.floor(Math.random() * risposteRandom.length)],
+                    status: 'received' 
+                })
+            }, 1500);
         },
     }
 }).mount('#app')
